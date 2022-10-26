@@ -7,14 +7,21 @@ use Illuminate\Http\Request;
 class PersonController extends Controller
 {
     private $name = "Moses I.B";
-
+    private $nrp = "200914024";
     public function index() {
-        return $this->name;
+        return view("person.index");
     }
+    
+        public function sendData() {
+            $nrp = $this->nrp;
+            $name = $this->name;
+            
+            return view("person.send-data", compact("nrp", "name"));
+    }
+        public function data() {
+            $names = ["ana". "banu", "cecep", "dadang", "entis"];
 
-    public function show($param) {
-        $this->name = $param;
-        return $this->name;
-    }
+            return view("person.data", ['names' => $names]);
+        }
+
 }
-
